@@ -46,7 +46,7 @@ clear
 MYIP=$(curl -sS ipv4.icanhazip.com)
 echo ""
 #########################
-# // USERNAME IZIN IPP
+# // USERNAME IZIN IP
 rm -f /usr/bin/user
 username=$(curl -sS https://raw.githubusercontent.com/zhets/izinsc/main/ip | grep $MYIP | awk '{print $2}')
 echo "$username" >/usr/bin/user
@@ -76,20 +76,16 @@ datediff() {
 }
 mai="datediff "$Exp" "$DATE""
 
-# Status ExpiRED Active | LUNATIC
-
-# // AKTIVATED & EXPIRED
-Info="${green}Activated${NC}"
+Ok="${green}Activated${NC}"
 Error="${green}Expired ${NC}"
 #//
 today=`date -d "0 days" +"%Y-%m-%d"`
 Exp1=$(curl -sS https://raw.githubusercontent.com/zhets/izinsc/main/ip | grep $MYIP | awk '{print $3}')
 if [[ $today < $Exp1 ]]; then
-sts="${Info}"
+sts="${Ok}"
 else
 sts="${Error}"
 fi
-echo -e "\e[32mloading...\e[0m"
 clear
 
 # // GETTINGS SYSTEM
@@ -117,7 +113,6 @@ dropbear_service=$(/etc/init.d/dropbear status | grep Active | awk '{print $3}' 
 haproxy_service=$(systemctl status haproxy | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 xray_service=$(systemctl status xray | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
 nginx_service=$(systemctl status nginx | grep Active | awk '{print $3}' | cut -d "(" -f2 | cut -d ")" -f1)
-#Status | rmbl Project
 clear
 
 
@@ -164,7 +159,7 @@ else
    status_dropbear="${z}[OFF]${NC} "
 fi
 # // UPDATE / REVISI all menu
-REVISI="https://raw.githubusercontent.com/VIP-VPN/vip/main/"
+REVISI="https://raw.githubusercontent.com/x-hunter12/vip/main/"
 
 # // INFO CREATE ACCOUNT
 # \\ Vless account //
@@ -231,44 +226,44 @@ yesterday_tx=NULL
 yesterday_txv=NULL
 fi
 clear
-echo -e " $COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e " $COLOR1║${NC}${COLBG1}                 ${WH} • RMBL VPN TUNNELING •                  ${NC}$COLOR1║ $NC"
-echo -e " $COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
-echo -e " $COLOR1╔══════════════════════════════════════════════════════════╗${NC}"
-echo -e " $COLOR1║$NC${WH}• OS            ${COLOR1}: ${WH}$MODEL${NC}"
-echo -e " $COLOR1║$NC${WH}• RAM           ${COLOR1}: ${WH}$tram / $uram MB${NC}"
-echo -e " $COLOR1║$NC${WH}• DATE          ${COLOR1}: ${WH}$DATEVPS${NC}"
-echo -e " $COLOR1║$NC${WH}• TIME          ${COLOR1}: ${WH}$TIMEZONE${NC}"
-echo -e " $COLOR1║$NC${WH}• ISP           ${COLOR1}: ${WH}$ISP${NC}"
-echo -e " $COLOR1║$NC${WH}• City          ${COLOR1}: ${WH}$CITY${NC}"
-echo -e " $COLOR1║$NC${WH}• IP VPS        ${COLOR1}: ${WH}$MYIP${NC}"
-echo -e " $COLOR1║$NC${WH}• DOMAIN        ${COLOR1}: ${WH}$domain${NC}"
-echo -e " $COLOR1║$NC${WH}• NAMA AUTHOR   ${COLOR1}: ${WH}$author${NC}"
-echo -e " $COLOR1╚══════════════════════════════════════════════════════════╝${NC}"
-echo -e "    $COLOR1╔═════════════════════════════════════════════════╗${NC}"
-echo -e "    $COLOR1║$NC ${WH}[ SSH WS : ${status_ws} ${WH}] ${WH}[ XRAY : ${status_xray} ${WH}] ${WH}[ NGINX : ${status_nginx} ${WH}]$COLOR1║$NC"
-echo -e "    $COLOR1╚═════════════════════════════════════════════════╝${NC}"
-echo -e "    $COLOR1╔═════════════════════════════════════════════════╗${NC}"
-echo -e "    $COLOR1║ ${WH} ${WH}SSH       VMESS         VLESS        TROJAN   $NC $COLOR1║ $NC"
-echo -e "    $COLOR1║ ${WH} ${WH} ${COLOR1}$total_ssh${WH}          ${COLOR1}$vmess${WH}             ${COLOR1}$vless${WH}            ${COLOR1}${trtls}${WH}      $NC $COLOR1║ $NC"
-echo -e "    $COLOR1╚═════════════════════════════════════════════════╝${NC}"
-echo -e " $COLOR1╔════════════════════════════════════════════════════════╗${NC}"
-echo -e " $COLOR1║$NC ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1║${NC}     ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}   $COLOR1║${NC}"
-echo -e " $COLOR1║$NC ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1║${NC}     ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT   ${WH}    $COLOR1║${NC}"    
-echo -e " $COLOR1║$NC ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}VLESS    ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1║${NC}     ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}UPDATE    ${WH}   $COLOR1║${NC}"   
-echo -e " $COLOR1║$NC ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}TROJAN   ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1║${NC}     ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}SETTING   ${WH}   $COLOR1║${NC}" 
-echo -e " $COLOR1║$NC ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}BOT TELE ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1║${NC}     ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}   $COLOR1║${NC}" 
-echo -e " $COLOR1╚════════════════════════════════════════════════════════╝${NC}"
-echo -e "    $COLOR1╔═════════════════════════════════════════════════╗${NC}"
-echo -e "    $COLOR1║$NC  ${WH}Total    $COLOR1║${NC}    ${WH}Today     ${WH}Yesterday     ${WH}Month         ${NC}"
-echo -e "    $COLOR1║$NC ${WH}Bantwidth $COLOR1║${NC}  ${WH}$today_tx $today_txv   ${WH}$yesterday_tx $yesterday_txv   ${WH}$month_tx $month_txv$COLOR1${NC}"
-echo -e "    $COLOR1╚═════════════════════════════════════════════════╝${NC}"
-echo -e "         $COLOR1╔═════════════════════════════════════════╗${NC}"
-echo -e "         $COLOR1║$NC ${WH}Versi  ${NC}: ${WH}$(cat /opt/.ver) Version${NC}$COLOR1"
-echo -e "         $COLOR1║$NC ${WH}Status${NC} : $sts"
-echo -e "         $COLOR1║$NC ${WH}Client${NC} : $username "
-echo -e "         $COLOR1║$NC ${WH}Expiry${NC} : $green$certifacate ${NC}Days"
-echo -e "         $COLOR1╚═════════════════════════════════════════╝${NC}"
+echo -e " $COLOR1╭──────────────────────────────────────────────────────────╮${NC}"
+echo -e " $COLOR1│${NC}${COLBG1}                 ${WH} • X-HUNTER TUNNELING •                  ${NC}$COLOR1│ $NC"
+echo -e " $COLOR1╰──────────────────────────────────────────────────────────╯${NC}"
+echo -e " $COLOR1╭──────────────────────────────────────────────────────────╮${NC}"
+echo -e " $COLOR1│$NC${WH}• OS            ${COLOR1}: ${WH}$MODEL${NC}"
+echo -e " $COLOR1│$NC${WH}• RAM           ${COLOR1}: ${WH}$tram / $uram MB${NC}"
+echo -e " $COLOR1│$NC${WH}• DATE          ${COLOR1}: ${WH}$DATEVPS${NC}"
+echo -e " $COLOR1│$NC${WH}• TIME          ${COLOR1}: ${WH}$TIMEZONE${NC}"
+echo -e " $COLOR1│$NC${WH}• ISP           ${COLOR1}: ${WH}$ISP${NC}"
+echo -e " $COLOR1│$NC${WH}• City          ${COLOR1}: ${WH}$CITY${NC}"
+echo -e " $COLOR1│$NC${WH}• IP VPS        ${COLOR1}: ${WH}$MYIP${NC}"
+echo -e " $COLOR1│$NC${WH}• DOMAIN        ${COLOR1}: ${WH}$domain${NC}"
+echo -e " $COLOR1│$NC${WH}• NAMA AUTHOR   ${COLOR1}: ${WH}$author${NC}"
+echo -e " $COLOR1╰──────────────────────────────────────────────────────────╯${NC}"
+echo -e "    $COLOR1╭─────────────────────────────────────────────────╮${NC}"
+echo -e "    $COLOR1│$NC ${WH}[ SSH WS : ${status_ws} ${WH}] ${WH}[ XRAY : ${status_xray} ${WH}] ${WH}[ NGINX : ${status_nginx} ${WH}]$COLOR1│$NC"
+echo -e "    $COLOR1╰─────────────────────────────────────────────────╯${NC}"
+echo -e "    $COLOR1╭─────────────────────────────────────────────────╮${NC}"
+echo -e "    $COLOR1│ ${WH} ${WH}SSH       VMESS         VLESS        TROJAN   $NC $COLOR1║ $NC"
+echo -e "    $COLOR1│ ${WH} ${WH} ${COLOR1}$total_ssh${WH}          ${COLOR1}$vmess${WH}             ${COLOR1}$vless${WH}            ${COLOR1}${trtls}${WH}      $NC $COLOR1║ $NC"
+echo -e "    $COLOR1╰─────────────────────────────────────────────────╯${NC}"
+echo -e " $COLOR1╭────────────────────────────────────────────────────────╮${NC}"
+echo -e " $COLOR1│$NC ${WH}[${COLOR1}01${WH}]${NC} ${COLOR1}• ${WH}SSH-WS   ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1│${NC}     ${WH}[${COLOR1}06${WH}]${NC} ${COLOR1}• ${WH}RESTART   ${WH}   $COLOR1│${NC}"
+echo -e " $COLOR1│$NC ${WH}[${COLOR1}02${WH}]${NC} ${COLOR1}• ${WH}VMESS    ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1│${NC}     ${WH}[${COLOR1}07${WH}]${NC} ${COLOR1}• ${WH}REBOOT   ${WH}    $COLOR1│${NC}"    
+echo -e " $COLOR1│$NC ${WH}[${COLOR1}03${WH}]${NC} ${COLOR1}• ${WH}VLESS    ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1│${NC}     ${WH}[${COLOR1}08${WH}]${NC} ${COLOR1}• ${WH}UPDATE    ${WH}   $COLOR1│${NC}"   
+echo -e " $COLOR1│$NC ${WH}[${COLOR1}04${WH}]${NC} ${COLOR1}• ${WH}TROJAN   ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1│${NC}     ${WH}[${COLOR1}09${WH}]${NC} ${COLOR1}• ${WH}SETTING   ${WH}   $COLOR1│${NC}" 
+echo -e " $COLOR1│$NC ${WH}[${COLOR1}05${WH}]${NC} ${COLOR1}• ${WH}BOT TELE ${WH}[${COLOR1}Menu${WH}]      ${NC} $COLOR1│${NC}     ${WH}[${COLOR1}10${WH}]${NC} ${COLOR1}• ${WH}BACKUP    ${WH}   $COLOR1│${NC}" 
+echo -e " $COLOR1╰────────────────────────────────────────────────────────╯${NC}"
+echo -e "    $COLOR1╭─────────────────────────────────────────────────╮${NC}"
+echo -e "    $COLOR1│$NC  ${WH}Total    $COLOR1│${NC}    ${WH}Today     ${WH}Yesterday     ${WH}Month         ${NC}"
+echo -e "    $COLOR1│$NC ${WH}Bantwidth $COLOR1│${NC}  ${WH}$today_tx $today_txv   ${WH}$yesterday_tx $yesterday_txv   ${WH}$month_tx $month_txv$COLOR1${NC}"
+echo -e "    $COLOR1╰─────────────────────────────────────────────────╯${NC}"
+echo -e "         $COLOR1╭─────────────────────────────────────────╮${NC}"
+echo -e "         $COLOR1│$NC ${WH}Versi  ${NC}: ${WH}$(cat /opt/.ver) Version${NC}$COLOR1"
+echo -e "         $COLOR1│$NC ${WH}Status${NC} : $sts"
+echo -e "         $COLOR1│$NC ${WH}Client${NC} : $username "
+echo -e "         $COLOR1│$NC ${WH}Expiry${NC} : $green$certifacate ${NC}Days"
+echo -e "         $COLOR1╰─────────────────────────────────────────╯${NC}"
 echo -e " "
 echo -ne " ${WH}Select menu ${COLOR1}: ${WH}"; read opt
 echo -e ""
